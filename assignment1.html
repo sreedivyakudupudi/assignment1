@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
+  <style>
         body {
             font-family: 'Baloo Bhai 2', cursive;
             margin: 0;
@@ -38,6 +38,12 @@
 
         label {
             font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .icon {
+            margin-right: 10px;
         }
 
         button {
@@ -148,38 +154,62 @@
 <div class="container">
     <h1>Registration Form</h1>
     <form id="registrationForm" onsubmit="submitForm(event)">
-        <label for="fullName"> <i class="fas fa-user"></i> Full Name:</label>    
+        <label for="fullName">
+            <i class="icon fas fa-user"></i>
+            Full Name:
+        </label>
         <input type="text" id="fullName" name="fullName" placeholder="Enter Your Name" >
 
-       
-        <label for="email">E-Mail:</label>
+        <label for="email">
+            <i class="icon fas fa-envelope"></i>
+            E-Mail:
+        </label>
         <input type="email" id="email" name="email" placeholder="Enter Your EMail">
 
         <div style="display: flex; gap: 298px;">
-        <label for="password">Password:</label>
-        <label for="confirmPassword">Confirm Password:</label>
-    </div>
-    <div style="display: flex; gap: 100px;">
-        <input type="password" id="password" name="password" placeholder="Enter Your Password">
-       
-        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Your Password">
-    </div>
+            <label for="password">
+                <i class="icon fas fa-lock"></i>
+                Password:
+            </label>
+            <label for="confirmPassword">
+                <i class="icon fas fa-lock"></i>
+                Confirm Password:
+            </label>
+        </div>
+        <div style="display: flex; gap: 100px;">
+            <input type="password" id="password" name="password" placeholder="Enter Your Password">
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Your Password">
+        </div>
 
-    <label for="branch">Branch:</label>
-    <input type="text" id="branch" name="branch" placeholder="Enter Your Branch" >
-
+        <label for="branch">
+            <i class="icon fas fa-graduation-cap"></i>
+            Branch:
+        </label>
+        <input type="text" id="branch" name="branch" placeholder="Enter Your Branch" >
 
         <div style="display: flex; gap: 15px;">
-            <label for="dob">DOB:</label>
+            <label for="dob">
+                <i class="icon fas fa-calendar-alt"></i>
+                DOB:
+            </label>
             <input type="date" id="dob" name="dob" >
-            <label id="gpa" for="cgpa">CGPA:</label>
+            <label id="gpa" for="cgpa">
+                <i class="icon fas fa-graduation-cap"></i>
+                CGPA:
+            </label>
             <input type="number" id="cgpa" name="cgpa" step="0.01" placeholder="Enter Your CGPA">
         </div>
         <div style="display: flex; gap: 10px;">
-            <label for="age">Age:</label>
+            <label for="age">
+                <i class="icon fas fa-birthday-cake"></i>
+                Age:
+            </label>
             <input type="number" id="age" name="age" placeholder="Enter Your Age" >
 
-            <label id="gen" for="gender">Gender:</label>
+            <label id="gen" for="gender">
+                <i class="icon fas fa-venus-mars"></i>
+                Gender:
+            </label>
             <select id="gender" name="gender" >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -187,10 +217,16 @@
             </select>
         </div>
 
-        <label for="phone">Phone Number:</label>
+        <label for="phone">
+            <i class="icon fas fa-phone"></i>
+            Phone Number:
+        </label>
         <input type="tel" id="phone" name="phone" placeholder="Enter Your Phone Number">
 
-        <label for="address">Address:</label>
+        <label for="address">
+            <i class="icon fas fa-map-marker-alt"></i>
+            Address:
+        </label>
         <textarea id="address" name="address" rows="4" placeholder="Enter Your Address" ></textarea>
 
         <button type="submit">Submit</button>
