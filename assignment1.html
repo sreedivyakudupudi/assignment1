@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Registration Form</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Baloo Bhai 2', cursive;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+            font-size: large;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 60px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: 1050px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: grid;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        button {
+            margin: auto;
+            width: 50%;
+            height: 45px;
+            border-radius: 8px;
+            font-family: 'Baloo Bhai 2', cursive;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Baloo Bhai 2', cursive;
+        }
+        #cgpa{
+            margin-left: 10px;
+        }
+
+        #gen{
+            margin-left: 10px;
+        }
+        #age{
+            margin-left: 7px;
+        }
+        #phone{
+            width: 50%;
+        }
+
+        .readonly-form {
+            margin-top: 20px;
+        }
+
+        .readonly-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .readonly-form input, .readonly-form select {
+            border: none;
+            background-color: #f4f4f4;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        #thankYouMessage {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #4CAF50;
+            text-align: center;
+            animation: anim 5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        img {
+            justify-content: center;
+            width: 80px;
+            height: auto;
+            margin-left: 265px;
+            animation: resizeImage 2s infinite alternate;
+        }
+
+        @keyframes resizeImage {
+            from {
+                width: 80px;
+                height: auto;
+            }
+            to {
+                width: 180px;
+                height: auto;
+            }
+        }
+
+        @keyframes anim {
+            from {
+                color: #4CAF50;
+                font-size: 18px;
+            }
+            to {
+                color: green;
+                font-size: 40px;
+            }
+        }
+
+        .address {
+            margin-top: 20px;
+            font-family: 'Baloo Bhai 2', cursive;
+        }
+        textarea{
+            border-radius: 8px;
+            font-family: 'Baloo Bhai 2', cursive;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Registration Form</h1>
+    <form id="registrationForm" onsubmit="submitForm(event)">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Enter Your Name" >
+
+       
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email" placeholder="Enter Your EMail">
+
+        <div style="display: flex; gap: 298px;">
+        <label for="password">Password:</label>
+        <label for="confirmPassword">Confirm Password:</label>
+    </div>
+    <div style="display: flex; gap: 100px;">
+        <input type="password" id="password" name="password" placeholder="Enter Your Password">
+       
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Your Password">
+    </div>
+
+    <label for="branch">Branch:</label>
+    <input type="text" id="branch" name="branch" placeholder="Enter Your Branch" >
+
+
+        <div style="display: flex; gap: 15px;">
+            <label for="dob">DOB:</label>
+            <input type="date" id="dob" name="dob" >
+            <label id="gpa" for="cgpa">CGPA:</label>
+            <input type="number" id="cgpa" name="cgpa" step="0.01" placeholder="Enter Your CGPA">
+        </div>
+        <div style="display: flex; gap: 10px;">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" placeholder="Enter Your Age" >
+
+            <label id="gen" for="gender">Gender:</label>
+            <select id="gender" name="gender" >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter Your Phone Number">
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="4" placeholder="Enter Your Address" ></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="readonly-form" id="readonlyForm" style="display: none;">
+        <label for="readonlyFullName">Full Name:</label>
+        <input type="text" id="readonlyFullName" readonly>
+
+        <label for="readonlyBranch">Branch:</label>
+        <input type="text" id="readonlyBranch" readonly>
+
+        <label for="readonlyDOB">Date of Birth:</label>
+        <input type="text" id="readonlyDOB" readonly>
+
+        <label for="readonlyCGPA">CGPA:</label>
+        <input type="text" id="readonlyCGPA" readonly>
+
+        <label for="readonlyAge">Age:</label>
+        <input type="text" id="readonlyAge" readonly>
+
+        <label for="readonlyGender">Gender:</label>
+        <input type="text" id="readonlyGender" readonly>
+
+        <label for="readonlyphno">Phone Number:</label>
+        <input type="number" id="readonlyphno" readonly>
+
+        <label for="readonlyadd">Address:</label>
+        <input type="text" id="readonlyadd" readonly>
+
+        <div class="thank-you-message" id="thankYouMessage" style="display: block;">
+            Thank you for Registering!! 
+        </div>
+        <img src="https://www.transparentpng.com/download/smiley/okey-sign-smiley-emoji-free-transparent-EEkKTT.png" alt="Thank You Image">
+    </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+
+            // Get form values
+            const fullName = document.getElementById('fullName').value;
+            const branch = document.getElementById('branch').value;
+            const dob = document.getElementById('dob').value;
+            const cgpa = document.getElementById('cgpa').value;
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+            const phno = document.getElementById('phone').value;
+            const addr = document.getElementById('address').value;
+
+            // Display read-only form
+            document.getElementById('readonlyFullName').value = fullName;
+            document.getElementById('readonlyBranch').value = branch;
+            document.getElementById('readonlyDOB').value = dob;
+            document.getElementById('readonlyCGPA').value = cgpa;
+            document.getElementById('readonlyAge').value = age;
+            document.getElementById('readonlyGender').value = gender;
+            document.getElementById('phone').value = phno;
+            document.getElementById('address').value = addr;
+            document.getElementById('readonlyForm').style.display = 'block';
+
+            // Display thank you message
+            document.getElementById('thankYouMessage').style.display = 'flex';
+
+            // Hide original form
+            document.getElementById('registrationForm').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
